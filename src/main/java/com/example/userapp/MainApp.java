@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = MainApp.class)
 @EnableJpaAuditing
 public class MainApp {
 
