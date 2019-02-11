@@ -1,8 +1,10 @@
 package com.example.userapp.controller;
 
+import com.example.userapp.dto.response.UserResponse;
 import com.example.userapp.exception.ResourceNotFoundException;
 import com.example.userapp.model.User;
 import com.example.userapp.repository.UserRepository;
+import com.example.userapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +19,12 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired (required = false)
+    UserService userService;
 
     @GetMapping("/get-users")
-    public List<User> getAllNotes() {
-        return userRepository.findAll();
+    public List<UserResponse> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @PostMapping("/post-user")
